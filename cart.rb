@@ -35,4 +35,15 @@ class Cart
         end
         return total_before_tax
     end
+
+    def self.most_expensive
+        most_expensive = @@cart_contents[0]
+        @@cart_contents.each do |product|
+            if product.calculate > most_expensive.calculate
+                most_expensive = product
+            end
+        end
+        return most_expensive
+    end
 end
+
